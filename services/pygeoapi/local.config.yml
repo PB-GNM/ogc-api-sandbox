@@ -1,0 +1,108 @@
+server:
+    bind:
+        host: 0.0.0.0
+        port: 80
+    url: https://apitestbed.geonovum.nl/pygeoapi
+    mimetype: application/json; charset=UTF-8
+    encoding: utf-8
+    language: en-US
+    cors: true
+    pretty_print: true
+    limit: 10
+    map:
+        url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
+        attribution: 'Map data &copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+#        url: https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png
+#        attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia maps</a> | Map data &copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    ogc_schemas_location: /schemas.opengis.net
+
+logging:
+    level: ERROR
+    #logfile: /tmp/master.log
+
+metadata:
+    identification:
+        title: GeoNovum OGC API testbed
+        description: An implementation showing use of pygeoapi as INSPICE download service
+        keywords:
+            - geospatial
+            - data
+            - INSPIRE
+            - Download service
+            - api
+        keywords_type: theme
+        terms_of_service: https://creativecommons.org/licenses/by/3.0/
+        url: https://www.nationaalgeoregister.nl/geonetwork/srv/metadata/45eaae76-874a-4fe1-88f4-820517e3de73
+    license:
+        name: CC-BY 3.0 license
+        url: http://creativecommons.org/licenses/by/3.0/nl/
+    provider:
+        name: Rijksdienst Cultureel Erfgoed
+        url: https://www.cultureelerfgoed.nl
+    contact:
+        name: Rijksdienst voor het Cultureel Erfgoed - InfoDesk
+        position: Helpdesk
+        address: Postbus 1600 
+        city: Amersfoort
+        stateorprovince: Utrecht
+        postalcode: 3800 BP
+        country: The Netherlands
+        phone: +31 633 4217456
+        fax: +31 633 4217799
+        email: info@cultureelerfgoed.nl
+        url: https://www.cultureelerfgoed.nl
+        role: pointOfContact
+
+resources:
+    ProtectedSites:
+        type: collection
+        title: Werelderfgoed
+        description: In deze dataset zijn de begrenzingen opgenomen van het Nederlandse cultureel erfgoed dat vanwege haar uitzonderlijke universele waarde door het Werelderfgoed comite van UNESCO is geplaatst op de Werelderfgoedlijst. De gegevens in de dataset zijn conform INSPIRE geharmoniseerd.
+        keywords:
+            - Werelderfgoed
+            - Protected sites
+        crs:
+            - EPSG:4258
+        links:
+            - type: text/html
+              rel: canonical
+              title: information
+              href: https://www.nationaalgeoregister.nl/geonetwork/srv/metadata/45eaae76-874a-4fe1-88f4-820517e3de73
+              hreflang: en-US
+            - type: application/xml
+              rel: canonical
+              title: information
+              href: https://www.nationaalgeoregister.nl/geonetwork/srv/metadata/45eaae76-874a-4fe1-88f4-820517e3de73
+              hreflang: en-US
+            - type: text/html
+              rel: canonical
+              title: information
+              href: http://inspire.ec.europa.eu/featureconcept/ProtectedSite
+              hreflang: en-US
+        extents:
+            spatial:
+                bbox: [4.40, 51.76, 5.80, 52.85]
+                crs: http://www.opengis.net/def/crs/OGC/1.3/EPSG:4258
+            temporal:
+                begin:
+                end: null  # or empty
+        providers:
+            - type: feature
+              name: OGR
+              data:
+                  source_type: GPKG
+                  source: data/rce.gpkg
+                  source_srs: EPSG:4258
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
+
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
+
+              id_field: gml_id
+              layer: rce
