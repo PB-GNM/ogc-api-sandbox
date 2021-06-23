@@ -1,5 +1,5 @@
 server:
-  externalUrl: https://apitestbed.geonovum.nl/ldproxy
+  externalUrl: https://apisandbox.geonovum.nl/ldproxy
 logging:
   level: DEBUG
   appenders:

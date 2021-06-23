@@ -44,7 +44,7 @@ ansible-galaxy install --roles-path ./roles -r requirements.yml
 ```
 
 # Installs entire system PROD
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt bootstrap.yml -i hosts/prod.yml
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt bootstrap.yml -i hosts/prod.yml
 
 ```
 
@@ -58,7 +58,7 @@ ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.t
 Basic sanity test:
 
 ```
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt test.yml -i hosts/prod.yml
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt test.yml -i hosts/prod.yml
 
 
 ```
@@ -68,13 +68,13 @@ ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.t
 Deploy individual services:
 
 ```
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt deploy.yml -i hosts/prod.yml --tags traefik
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt deploy.yml -i hosts/prod.yml --tags traefik
 
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt deploy.yml -i hosts/prod.yml --tags pygeoapi
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt deploy.yml -i hosts/prod.yml --tags pygeoapi
 
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt deploy.yml -i hosts/prod.yml --tags postgis
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt deploy.yml -i hosts/prod.yml --tags postgis
 
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt deploy.yml -i hosts/prod.yml --tags admin
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt deploy.yml -i hosts/prod.yml --tags admin
 
 ```
 
@@ -83,10 +83,10 @@ ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.t
 Manage ogcapi `systemd` service:
 
 ```
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt service.yml -i hosts/prod.yml --tags status
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt service.yml -i hosts/prod.yml --tags status
 
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt service.yml -i hosts/prod.yml --tags stop
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt service.yml -i hosts/prod.yml --tags stop
 
-ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-testbed.txt service.yml -i hosts/prod.yml --tags start
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt service.yml -i hosts/prod.yml --tags start
 
 ```

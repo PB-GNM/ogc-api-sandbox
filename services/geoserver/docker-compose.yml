@@ -21,7 +21,7 @@ services:
       - CUSTOM_UID=${HOST_UID}
       - CUSTOM_GID=${HOST_GID}
       - GEOSERVER_CSRF_DISABLED=true
-      - GEOSERVER_CSRF_WHITELIST=apitestbed.geonovum.nl
+      - GEOSERVER_CSRF_WHITELIST=apisandbox.geonovum.nl
 
     volumes:
       # Map data and config into GeoServer container
