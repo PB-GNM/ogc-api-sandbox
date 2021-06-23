@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Geonovum">
+        <link rel="canonical" href="https://apitestdocs.geonovum.nl/cases/skinning/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Skinning OGC API Features - Geonovum OGC API Testbed</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Geonovum OGC API Testbed</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../howto/" class="nav-link">Howto</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../setup/" class="nav-link">Setup</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../findings/" class="nav-link">Results</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/Geonovum/ogc-api-testbed" class="nav-link">Code</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/Geonovum/ogc-api-testbed/edit/master/docs/cases/skinning.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#skinning-ogc-api-features" class="nav-link">Skinning OGC API Features</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#pygeoapi" class="nav-link">pygeoapi</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#pycsw" class="nav-link">pycsw</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#qgis" class="nav-link">QGIS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#geoserver" class="nav-link">GeoServer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ldproxy" class="nav-link">LDProxy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#geonetwork" class="nav-link">GeoNetwork</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="skinning-ogc-api-features">Skinning OGC API Features</h1>
+<p>HTML is a first class citizen in OGC API Common. This means that a typical OGC API can be accessed via a web browser, offering a human readable interface. This aspect brings in a usability aspect that providers previously didn't need to worry about. Aspects such as corporate identity, WCAG (accessibility), search engine optimisation or a cookie/privacy statement.</p>
+<p>For the experiment we want to understand how easy it is to update basic aspects on the html visualisation in various OGC API products.</p>
+<h2 id="pygeoapi">pygeoapi</h2>
+<p>pygeoapi uses <a href="https://palletsprojects.com/p/jinja/">jinja templates</a> for html output. These templates are located at <code>~/pygeoapi/templates</code>. You can override these templates at their location. But you can also <a href="https://github.com/geopython/pygeoapi/blob/37b1e9553b29b168b7d5637cc45974ac2681a75f/pygeoapi-config.yml#L45-L46">set a separate template override folder</a>, where you can place (a part of the) updated templates. Updating the templates requires basic html skills, subsituted parameters are placed in curly braces:</p>
+<pre><code class="language-html">  &lt;footer class=&quot;sticky&quot;&gt;Powered by &lt;a title=&quot;pygeoapi&quot; href=&quot;https://pygeoapi.io&quot;&gt;
+    &lt;img src=&quot;{{ config['server']['url'] }}/static/img/pygeoapi.png&quot; title=&quot;pygeoapi logo&quot; style=&quot;height:24px;vertical-align: middle;&quot;/&gt;
+    &lt;/a&gt; {{ version }}
+  &lt;/footer&gt; 
+</code></pre>
+<h2 id="pycsw">pycsw</h2>
+<p>The implementation of OGC API Records in pycsw is derived from the pygeoapi implementation. The templates are located at <code>~/pycsw/ogc/api/templates</code>.</p>
+<h2 id="qgis">QGIS</h2>
+<p>QGIS uses similar jinja templates as pygeoapi, you can override the resources folder via the environment variable QGIS_SERVER_API_RESOURCES_DIRECTORY. The standard location of the templates is <code>~/qgis/resources/server/api/ogc/templates/wfs3</code>.</p>
+<h2 id="geoserver">GeoServer</h2>
+<p>GeoServer uses <a href="https://freemarker.apache.org/">Freemarker templates</a> to render content in html. These <code>.ftl</code> files are persisted within <code>.jar</code> files. A basic override approach could be to extract <code>gs-ogcapi-features.jar</code> to a folder, adjust the templates, and zip the package back to a <code>.jar</code> file and deploy it. GeoServer also provides a template override mechanism from the data folder. Read more at a <a href="https://docs.geoserver.org/latest/en/user/community/ogc-api/features/index.html#service-configuration">dedicated blog on this topic</a>.
+ Freemarker uses a similar substitution mechanism as jinja:</p>
+<pre><code class="language-html">  &lt;li&gt;Mail: &lt;a href=&quot;mailto:${contact.contactEmail}&quot;&gt;${contact.contactEmail}&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<h2 id="ldproxy">LDProxy</h2>
+<p>The HTML encoding is implemented using <a href="https://mustache.github.io/">Mustache templates</a>. Custom templates are supported, they have to reside in the data directory under the relative path <code>templates/html/{templateName}.mustache</code>, where <code>{templateName}</code> equals the name of a default template (see <a href="https://github.com/search?q=repo%3Ainteractive-instruments%2Fldproxy+extension%3Amustache&amp;type=Code">source code</a> on GitHub) (taken from <a href="https://github.com/interactive-instruments/ldproxy/blob/fb772a7c3bc9b32cdde06a1ac92bbb72414b07d1/docs/en/configuration/services/building-blocks/html.md#customization">ldproxy docs</a>).</p>
+<h2 id="geonetwork">GeoNetwork</h2>
+<p>GeoNetwork offers an experimental OGC API Records implementation at https://github.com/geonetwork/geonetwork-microservices/tree/main/modules/services/ogc-api-records. This plugin can be installed on the latest v4 GeoNetwork. GeoNetwork uses <a href="https://en.wikipedia.org/wiki/XSLT">xslt</a> to provide a html interface. The xslt templates are located at https://github.com/geonetwork/geonetwork-microservices/tree/main/modules/services/ogc-api-records/src/main/resources/xslt/ogcapir. </p>
+<pre><code class="language-xml">  &lt;div class=&quot;w-2/3 pr-4&quot;&gt;
+    &lt;abstract&gt;
+      &lt;xsl:value-of select=&quot;$abstract&quot;/&gt;
+    &lt;/abstract&gt;
+  &lt;/div&gt;
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>&copy; 2021 Geonovum</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

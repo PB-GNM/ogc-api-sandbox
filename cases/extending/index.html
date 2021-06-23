@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Geonovum">
+        <link rel="canonical" href="https://apitestdocs.geonovum.nl/cases/extending/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Extending pygeoapi - Geonovum OGC API Testbed</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Geonovum OGC API Testbed</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../howto/" class="nav-link">Howto</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../setup/" class="nav-link">Setup</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../findings/" class="nav-link">Results</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/Geonovum/ogc-api-testbed" class="nav-link">Code</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/Geonovum/ogc-api-testbed/edit/master/docs/cases/extending.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#extending-pygeoapi" class="nav-link">Extending pygeoapi</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#ogc-api-processes" class="nav-link">OGC API processes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#extending-pygeoapi_1" class="nav-link">Extending pygeoapi</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="extending-pygeoapi">Extending pygeoapi</h1>
+<p>An interesting use case around OGC API's is the ability to extend a base product with additional methods to facilitate more advanced data interaction. For example on a dataset with 'public announcements', citizens may want to interact with an announcement by sharing it with their friends, upvote or comment on it. </p>
+<p>Of all products in the testbed pygeoapi seems most appropriate to be extended to facilitate this use case. Unfortunately pygeoapi currently does not offer any extension points to add new methods. There is however the OGC API Processes endpoint which can be used for this purpose. Also I provide an example of an extension point in pygeoapi, to indicate how extensions are managed in pygeoapi.</p>
+<h2 id="ogc-api-processes">OGC API processes</h2>
+<p>OGC API processes has a similar goal, to extend interacting with datasets by offering the capability to run processes on a dataset. The advantage is that users don't need to download the data, but can interact with the data at its origin. Processes are defined server side. Which processes are available is listed in the /processes endpoint.</p>
+<p>OGC API processes is more verbose then what people expect in modern api's. For example submitting 2 parameters to the hello-world process requires this input json object.</p>
+<pre><code class="language-json">{
+  &quot;inputs&quot;: [
+    {
+      &quot;id&quot;: &quot;name&quot;,
+      &quot;type&quot;: &quot;text/plain&quot;,
+      &quot;value&quot;: &quot;World&quot;
+    },
+    {
+      &quot;id&quot;: &quot;message&quot;,
+      &quot;type&quot;: &quot;text/plain&quot;,
+      &quot;value&quot;: &quot;An optional message.&quot;
+    }
+  ]
+}
+</code></pre>
+<p>Above data structure facilitates quite complex input parameters and is well described in the open api document. An important benefit is that this is a standadised client-server interaction. Both synchronous and asynchronous cases are supported by OGC API Processes.</p>
+<p><a href="https://docs.pygeoapi.io/en/latest/data-publishing/ogcapi-processes.html?highlight=processes">Read more</a> on how processes can be defined in pygeoapi</p>
+<h2 id="extending-pygeoapi_1">Extending pygeoapi</h2>
+<p>pygeoapi has been developed with the idea of running it standalone or as a library in for example GeoNode. The optimal way to extend pygeoapi is to create a dedicated project and add pygeoapi as a dependency to the project. Extending pygeoapi is currently most common in the provider section. Users are invited to write their own providr plugin which manages access to a dedicated backend.</p>
+<p>An example of this is https://github.com/Canadian-Geospatial-Platform/geocore-pygeoapi. The project is a provider plugin to access a dedicated spatial catalogue backend in order to provide an OGC API Records layer by pygeoapi. The project includes pygeoapi as a depenendy (via <a href="https://github.com/Canadian-Geospatial-Platform/geocore-pygeoapi/blob/88162b8f4558751eb4d85e9fa48d60b0ed1e4ad6/requirements.txt#L1">requirements.txt</a>).</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>&copy; 2021 Geonovum</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
