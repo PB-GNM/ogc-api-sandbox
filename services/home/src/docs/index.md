@@ -4,7 +4,7 @@ title: OGC-API-Testbed - SANDBOX
 
 # OGC-API-Testbed - SANDBOX - Home
 
-Landing page for this server instance. 
+Landing page for this server instance, the "playground". 
 Main website and documentation: [apitestdocs.geonovum.nl](https://apitestdocs.geonovum.nl).
  
 Below the (web-) services running on this domain. Click links to view and interact.
