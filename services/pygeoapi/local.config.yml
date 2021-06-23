@@ -22,7 +22,7 @@ logging:
 
 metadata:
     identification:
-        title: Geonovum OGC API testbed
+        title: Geonovum OGC API testbed - demo deployment
         description: An implementation showing use of pygeoapi as INSPIRE download service
         keywords:
             - geospatial
@@ -84,6 +84,11 @@ resources:
               title: information
               href: https://www.cultureelerfgoed.nl/onderwerpen/werelderfgoed
               hreflang: nl-NL
+            - type: text/html
+              rel: canonical
+              title: information
+              href: https://geonovum.nl
+              hreflang: nl-NL              
         extents:
             spatial:
                 bbox: [4.40, 51.76, 5.80, 52.85]
