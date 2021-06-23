@@ -64,4 +64,8 @@
 
     - name: "admin"
       shell: "cd {{ services_home }}/admin && ./deploy.sh && docker ps"
-      tags: admin
+      tags: admin      
+      
+    - name: "bgt"
+      shell: "cd {{ services_home }}/bgt && ./deploy.sh && docker ps"
+      tags: bgt
