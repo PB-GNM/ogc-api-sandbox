@@ -1,8 +1,8 @@
 ---
-title: OGC-API-Testbed - STABLE
+title: OGC-API-Testbed - SANDBOX
 ---
 
-# OGC-API-Testbed - STABLE - Home
+# OGC-API-Testbed - SANDBOX - Home
 
 Landing page for this server instance. 
 Main website and documentation: [apitestdocs.geonovum.nl](https://apitestdocs.geonovum.nl).
