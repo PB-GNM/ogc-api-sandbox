@@ -6,7 +6,7 @@ services:
 
     image: geopython/pygeoapi:latest
 
-    container_name: pygeoapi
+    container_name: bgt
 
     expose:
       - "80"
