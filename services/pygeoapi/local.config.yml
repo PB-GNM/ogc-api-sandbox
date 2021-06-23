@@ -22,8 +22,8 @@ logging:
 
 metadata:
     identification:
-        title: GeoNovum OGC API testbed
-        description: An implementation showing use of pygeoapi as INSPICE download service
+        title: Geonovum OGC API testbed
+        description: An implementation showing use of pygeoapi as INSPIRE download service
         keywords:
             - geospatial
             - data
@@ -42,7 +42,7 @@ metadata:
     contact:
         name: Rijksdienst voor het Cultureel Erfgoed - InfoDesk
         position: Helpdesk
-        address: Postbus 1600 
+        address: Postbus 1600
         city: Amersfoort
         stateorprovince: Utrecht
         postalcode: 3800 BP
@@ -79,6 +79,11 @@ resources:
               title: information
               href: http://inspire.ec.europa.eu/featureconcept/ProtectedSite
               hreflang: en-US
+            - type: text/html
+              rel: canonical
+              title: information
+              href: https://www.cultureelerfgoed.nl/onderwerpen/werelderfgoed
+              hreflang: nl-NL
         extents:
             spatial:
                 bbox: [4.40, 51.76, 5.80, 52.85]
