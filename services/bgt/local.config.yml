@@ -22,7 +22,7 @@ logging:
 
 metadata:
     identification:
-        title: Geonovum OGC API testbed - BGT subset
+        title: Geonovum OGC API testbed -BGT subset
         description: An implementation showing use of BGT picknicktables
         keywords:
             - geospatial
