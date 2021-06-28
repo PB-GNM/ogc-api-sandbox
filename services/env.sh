@@ -6,6 +6,7 @@
 
 # Assume a local deployment
 export DEPLOY_ENV="local"
+export TRAEFIK_DOMAIN="localhost"
 export TRAEFIK_SSL_ENDPOINT=
 export TRAEFIK_SSL_DOMAIN="apisandbox.geonovum.nl"
 export TRAEFIK_SSL_CERT_RESOLVER=
@@ -16,10 +17,16 @@ export HOST_UID_GID="${HOST_UID}:${HOST_GID}"
 
 # Set host-dependent vars
 case "${HOSTNAME}" in
-    "apisandbox.geonovum.nl")
+    "OGCAPIP")
         DEPLOY_ENV="prod"
         ;;
-    "apisandbox")
+    "apitestbed.geonovum.nl")
+        DEPLOY_ENV="prod"
+        ;;
+    "apitestbed")
+        DEPLOY_ENV="prod"
+        ;;
+    "vps11118.alm01.cloud")
         DEPLOY_ENV="prod"
         ;;
     *)
@@ -32,4 +39,5 @@ then
     TRAEFIK_SSL_ENDPOINT="https"
     TRAEFIK_SSL_CERT_RESOLVER="le"
     TRAEFIK_USE_TLS="true"
+    TRAEFIK_DOMAIN="${TRAEFIK_SSL_DOMAIN}"
 fi
