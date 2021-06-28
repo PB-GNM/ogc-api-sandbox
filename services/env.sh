@@ -17,16 +17,10 @@ export HOST_UID_GID="${HOST_UID}:${HOST_GID}"
 
 # Set host-dependent vars
 case "${HOSTNAME}" in
-    "OGCAPIP")
+    "apisandbox.geonovum.nl")
         DEPLOY_ENV="prod"
         ;;
-    "apitestbed.geonovum.nl")
-        DEPLOY_ENV="prod"
-        ;;
-    "apitestbed")
-        DEPLOY_ENV="prod"
-        ;;
-    "vps11118.alm01.cloud")
+    "apisandbox")
         DEPLOY_ENV="prod"
         ;;
     *)
