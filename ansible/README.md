@@ -78,7 +78,7 @@ ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.t
 
 ```
 
-## System
+## Service Management
 
 Manage ogcapi `systemd` service:
 
@@ -88,5 +88,17 @@ ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.t
 ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt service.yml -i hosts/prod.yml --tags stop
 
 ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt service.yml -i hosts/prod.yml --tags start
+
+```
+ 
+
+## System Management
+
+Manage the remote Host OS (Ubuntu) system.
+
+```
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt system.yml -i hosts/prod.yml --tags update_packages
+
+ansible-playbook -v --vault-password-file ~/.ssh/ansible-vault/ogc-api-sandbox.txt system.yml -i hosts/prod.yml --tags reboot
 
 ```
