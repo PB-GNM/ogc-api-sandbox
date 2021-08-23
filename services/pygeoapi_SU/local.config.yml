@@ -8,7 +8,7 @@ server:
     language: en-US
     cors: true
     pretty_print: true
-    limit: 10
+    limit: 500
     map:
         url: https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:3857/{z}/{x}/{y}.png
         attribution: 'Map data &copy; <a href="https://pdok.nl">PDOK Kadaster</a>'
@@ -87,7 +87,7 @@ resources:
               hreflang: nl
         extents:
             spatial:
-                bbox: [4.40, 51.76, 5.80, 52.85]
+                bbox: [3.10, 50.50, 7.60, 53.80]
                 crs: http://www.opengis.net/def/crs/OGC/1.3/EPSG:4258
             temporal:
                 begin: 2018-01-01T00:00:01Z  # start datetime in RFC3339
