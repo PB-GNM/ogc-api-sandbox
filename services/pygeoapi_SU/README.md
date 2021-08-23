@@ -1,4 +1,10 @@
-# Demo service for pygeoapi - test
+# Demo service for pygeoapi with INSPIRE harmonized Statistical Units for the Netherlands
+
+This service is a copy of https://github.com/Geonovum/ogc-api-sandbox/tree/main/services/pygeoapi
+It has been made to find out issues that can be encountered while publishing an INSPIRE harmonized dataset.
+There is a link with https://github.com/Geonovum/OAPIF-PDOK-INSPIRE which does basicaly the same together with the Dutch hosting organisation PDOK.
+
+## Technical info
 
 Runs latest GitHub `main` branch of `pygeoapi` using
 its [Docker Image from DockerHub](https://cloud.docker.com/u/geopython/repository/docker/geopython/pygeoapi).
