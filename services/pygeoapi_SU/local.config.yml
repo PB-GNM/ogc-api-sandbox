@@ -99,7 +99,7 @@ resources:
                   source_type: GPKG
                   source: data/SU_NL_ETRS89.gpkg
                   source_srs: EPSG:4258
-                  target_srs: EPSG:4326
+                  target_srs: EPSG:4258
                   source_capabilities:
                       paging: True
 
@@ -158,7 +158,7 @@ resources:
                   source_type: GPKG
                   source: data/SU_NL_ETRS89.gpkg
                   source_srs: EPSG:4258
-                  target_srs: EPSG:4326
+                  target_srs: EPSG:4258
                   source_capabilities:
                       paging: True
 
@@ -217,7 +217,7 @@ resources:
                   source_type: GPKG
                   source: data/SU_NL_ETRS89.gpkg
                   source_srs: EPSG:4258
-                  target_srs: EPSG:4326
+                  target_srs: EPSG:4258
                   source_capabilities:
                       paging: True
 
@@ -276,7 +276,7 @@ resources:
                   source_type: GPKG
                   source: data/SU_NL_ETRS89.gpkg
                   source_srs: EPSG:4258
-                  target_srs: EPSG:4326
+                  target_srs: EPSG:4258
                   source_capabilities:
                       paging: True
 
@@ -335,7 +335,7 @@ resources:
                   source_type: GPKG
                   source: data/SU_NL_ETRS89.gpkg
                   source_srs: EPSG:4258
-                  target_srs: EPSG:4326
+                  target_srs: EPSG:4258
                   source_capabilities:
                       paging: True
 
@@ -394,7 +394,7 @@ resources:
                   source_type: GPKG
                   source: data/SU_NL_ETRS89.gpkg
                   source_srs: EPSG:4258
-                  target_srs: EPSG:4326
+                  target_srs: EPSG:4258
                   source_capabilities:
                       paging: True
 
@@ -453,7 +453,7 @@ resources:
                   source_type: GPKG
                   source: data/SU_NL_ETRS89.gpkg
                   source_srs: EPSG:4258
-                  target_srs: EPSG:4326
+                  target_srs: EPSG:4258
                   source_capabilities:
                       paging: True
 
