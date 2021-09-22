@@ -55,65 +55,6 @@ metadata:
         role: pointOfContact
 
 resources:
-    StatisticalUnits_Gemeente_2017:
-        type: collection
-        title: StatisticalUnits_Gemeente_2017
-        description: In deze dataset zijn de begrenzingen opgenomen van Nederlandse Gemeenten uit 2017. De gegevens in de dataset zijn conform INSPIRE geharmoniseerd.
-        keywords:
-            - statistiek
-            - Gemeenten
-        crs:
-            - EPSG:4326
-        links:
-            - type: text/html
-              rel: describedby
-              title: Metadata as HTML
-              href: https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/10d1153e-778f-4995-9b6c-7c69b196cccb
-              hreflang: nl
-            - type: application/xml
-              rel: describedby
-              title: Metadata as iso19139 xml
-              href: https://www.nationaalgeoregister.nl/geonetwork/srv/metadata/10d1153e-778f-4995-9b6c-7c69b196cccb/formatters/xml
-              hreflang: nl
-            - type: text/html
-              rel: tag
-              title: Referentie naar het concept statistische eenheden (inspire registry)
-              href: https://inspire.ec.europa.eu/featureconcept/VectorStatisticalUnit
-              hreflang: nl
-            - type: application/gml+xml
-              rel: enclosure
-              title: Download volledige dataset als GML
-              href: https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2017%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E
-              hreflang: nl
-        extents:
-            spatial:
-                bbox: [3.10, 50.50, 7.60, 53.80]
-                crs: http://www.opengis.net/def/crs/OGC/1.3/EPSG:4326
-            temporal:
-                begin: 2017-01-01T00:00:01Z  # start datetime in RFC3339
-                end: 2017-12-31T23:59:59Z  # end datetime in RFC3339
-        providers:
-            - type: feature
-              name: OGR
-              data:
-                  source_type: WFS
-                  source: https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2017%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E
-                  source_srs: EPSG:4258
-                  target_srs: EPSG:4326
-                  source_capabilities:
-                      paging: True
-
-                  gdal_ogr_options:
-                      EMPTY_AS_NULL: NO
-                      GDAL_CACHEMAX: 64
-                      # GDAL_HTTP_PROXY: (optional proxy)
-                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
-                      CPL_DEBUG: NO
-
-              id_field: localid
-              title_field: geographicalname
-              layer: su_gemeente_2017
-
     StatisticalUnits_Gemeente_2018:
         type: collection
         title: StatisticalUnits_Gemeente_2018
@@ -525,4 +466,122 @@ resources:
 
               id_field: localid
               title_field: geographicalname
-              layer: su_nuts3_2016               
+              layer: su_nuts3_2016
+    StatisticalUnits_Gemeente_2017:
+        type: collection
+        title: StatisticalUnits_Gemeente_2017
+        description: In deze dataset zijn de begrenzingen opgenomen van Nederlandse Gemeenten uit 2017. De gegevens in de dataset zijn conform INSPIRE geharmoniseerd.
+        keywords:
+            - statistiek
+            - Gemeenten
+        crs:
+            - EPSG:4326
+        links:
+            - type: text/html
+              rel: describedby
+              title: Metadata as HTML
+              href: https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/10d1153e-778f-4995-9b6c-7c69b196cccb
+              hreflang: nl
+            - type: application/xml
+              rel: describedby
+              title: Metadata as iso19139 xml
+              href: https://www.nationaalgeoregister.nl/geonetwork/srv/metadata/10d1153e-778f-4995-9b6c-7c69b196cccb/formatters/xml
+              hreflang: nl
+            - type: text/html
+              rel: tag
+              title: Referentie naar het concept statistische eenheden (inspire registry)
+              href: https://inspire.ec.europa.eu/featureconcept/VectorStatisticalUnit
+              hreflang: nl
+            - type: application/gml+xml
+              rel: enclosure
+              title: Download volledige dataset als GML
+              href: https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2017%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E
+              hreflang: nl
+        extents:
+            spatial:
+                bbox: [3.10, 50.50, 7.60, 53.80]
+                crs: http://www.opengis.net/def/crs/OGC/1.3/EPSG:4326
+            temporal:
+                begin: 2017-01-01T00:00:01Z  # start datetime in RFC3339
+                end: 2017-12-31T23:59:59Z  # end datetime in RFC3339
+        providers:
+            - type: feature
+              name: OGR
+              data:
+                  source_type: WFS
+                  source: https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2017%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E
+                  source_srs: EPSG:4258
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
+
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
+
+              id_field: localid
+              title_field: geographicalname
+              layer: su_gemeente_2017
+    StatisticalUnits_Gemeente_2017_GML:
+        type: collection
+        title: StatisticalUnits_Gemeente_2017_uitGMLfile
+        description: In deze dataset zijn de begrenzingen opgenomen van Nederlandse Gemeenten uit 2017. De gegevens in de dataset zijn conform INSPIRE geharmoniseerd.
+        keywords:
+            - statistiek
+            - Gemeenten
+        crs:
+            - EPSG:4326
+        links:
+            - type: text/html
+              rel: describedby
+              title: Metadata as HTML
+              href: https://www.nationaalgeoregister.nl/geonetwork/srv/dut/catalog.search#/metadata/10d1153e-778f-4995-9b6c-7c69b196cccb
+              hreflang: nl
+            - type: application/xml
+              rel: describedby
+              title: Metadata as iso19139 xml
+              href: https://www.nationaalgeoregister.nl/geonetwork/srv/metadata/10d1153e-778f-4995-9b6c-7c69b196cccb/formatters/xml
+              hreflang: nl
+            - type: text/html
+              rel: tag
+              title: Referentie naar het concept statistische eenheden (inspire registry)
+              href: https://inspire.ec.europa.eu/featureconcept/VectorStatisticalUnit
+              hreflang: nl
+            - type: application/gml+xml
+              rel: enclosure
+              title: Download volledige dataset als GML
+              href: https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2017%3C/Literal%3E%3C/PropertyIsEqualTo%3E%3C/Filter%3E
+              hreflang: nl
+        extents:
+            spatial:
+                bbox: [3.10, 50.50, 7.60, 53.80]
+                crs: http://www.opengis.net/def/crs/OGC/1.3/EPSG:4326
+            temporal:
+                begin: 2017-01-01T00:00:01Z  # start datetime in RFC3339
+                end: 2017-12-31T23:59:59Z  # end datetime in RFC3339
+        providers:
+            - type: feature
+              name: OGR
+              data:
+                  source_type: GML
+                  source: data/wfs_gemeenten2017.gml
+                  source_srs: EPSG:4258
+                  target_srs: EPSG:4326
+                  source_capabilities:
+                      paging: True
+
+                  gdal_ogr_options:
+                      EMPTY_AS_NULL: NO
+                      GDAL_CACHEMAX: 64
+                      # GDAL_HTTP_PROXY: (optional proxy)
+                      # GDAL_PROXY_AUTH: (optional auth for remote WFS)
+                      CPL_DEBUG: NO
+
+              id_field: localid
+              title_field: geographicalname
+              layer: su_gemeente_2017              
+
+              
