@@ -509,7 +509,7 @@ resources:
               name: OGR
               data:
                   source_type: WFS
-                  source: https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2017%3C/Literal%3E%3C/PropertysEqualTo%3E%3C/Filter%3E&outputFormat=application/json
+                  source: WFS:https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2017%3C/Literal%3E%3C/PropertysEqualTo%3E%3C/Filter%3E&outputFormat=application/json
                   source_srs: EPSG:4258
                   target_srs: EPSG:4326
                   source_capabilities:
@@ -567,7 +567,7 @@ resources:
               name: OGR
               data:
                   source_type: WFS
-                  source: https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2016%3C/Literal%3E%3C/PropertysEqualTo%3E%3C/Filter%3E&outputFormat=application/json
+                  source: WFS:https://geodata.nationaalgeoregister.nl/su-vector/wfs?request=GetFeature&version=2.0.0&typeNames=su-vector:SU.VectorStatisticalUnit&filter=%3CFilter+xmlns=%22http://www.opengis.net/ogc%22%3E%3CPropertyIsEqualTo%3E%3CPropertyName%3Etessellation_localid%3C/PropertyName%3E%3CLiteral%3Egemeente.2016%3C/Literal%3E%3C/PropertysEqualTo%3E%3C/Filter%3E&outputFormat=application/json
                   source_srs: EPSG:4326
                   target_srs: EPSG:28992
                   source_capabilities:
